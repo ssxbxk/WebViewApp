@@ -1,0 +1,2959 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passw" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MySoapHeader" type="tns:MySoapHeader" />
+      <s:complexType name="MySoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Unarray" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shipname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shipvalue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enddate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHistoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMapUrl">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMapUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMapUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPKUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bbh" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPKUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPKUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotificationCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotificationCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNotificationCountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserSendMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageindex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pagesize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserSendMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserSendMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMessageState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetMessageStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetMessageStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShipForjwd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lng" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="lat" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="diff" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShipForjwdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShipForjwdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchShipOROilAdress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="swhere" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchShipOROilAdressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchShipOROilAdressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOildepotInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOildepotInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOildepotInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRefineryInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRefineryInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRefineryInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransportationInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTransportationInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransportationInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjInfoForclient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjInfoForclientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYjInfoForclientResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjInfoForIphone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjInfoForIphoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYjInfoForIphoneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYjInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllYk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="entid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllYkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllYkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProgressAllYk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="entid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProgressAllYkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProgressAllYkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlangoodAllYk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ntype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="datestr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlangoodAllYkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlangoodAllYkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetdatielYk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="varietytype" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="entid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetdatielYkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetdatielYkResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllYjProgressInfoForVarietytype">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="varietytype" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="entid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllYjProgressInfoForVarietytypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllYjProgressInfoForVarietytypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKcYjInfoForIphone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="entid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKcYjInfoForIphoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKcYjInfoForIphoneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjWarehouseSaveInfoForEid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="entid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjWarehouseSaveInfoForEidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYjWarehouseSaveInfoForEidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCcYjInfoForIphone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="entid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCcYjInfoForIphoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCcYjInfoForIphoneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjProgressInfoForEid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="entid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjProgressInfoForEidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYjProgressInfoForEidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjWarehouseSaveInfoForVarietytype">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="varietytype" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="entid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjWarehouseSaveInfoForVarietytypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYjWarehouseSaveInfoForVarietytypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjProgressInfoForVarietytype">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="varietytype" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="entid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ndtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjProgressInfoForVarietytypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYjProgressInfoForVarietytypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransportAudit">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTransportAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransportAuditResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitTransportAudit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dpoappid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ctype" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitTransportAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommitTransportAuditResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWaterTranAudit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWaterTranAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWaterTranAuditResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHCTranAudit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHCTranAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHCTranAuditResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitDispatcherAudit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pdetailid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitDispatcherAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommitDispatcherAuditResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDispatcherAudit">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDispatcherAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDispatcherAuditResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWaterTranConfirm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWaterTranConfirmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWaterTranConfirmResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitWaterTranConfirm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="plandetailid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="planremark" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastvariety" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shiptime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ctype" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitWaterTranConfirmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommitWaterTranConfirmResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWaterTranAlterPort">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWaterTranAlterPortResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWaterTranAlterPortResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitWaterTranAlterPort">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remark" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ctype" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitWaterTranAlterPortResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommitWaterTranAlterPortResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendGoodstime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userparentid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="transtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendGoodstimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSendGoodstimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitGoodsTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="plandetailid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sjfhl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="begintime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endtime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitGoodsTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommitGoodsTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitAuditResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="audid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="atype" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitAuditResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommitAuditResultResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitHCJHAuditResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="audid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitHCJHAuditResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommitHCJHAuditResultResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransportCostReceipt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransportCostReceiptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransportCostReceiptResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitTransportCostReceipt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pdetailid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitTransportCostReceiptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommitTransportCostReceiptResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYJshowcolorInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYJshowcolorInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYJshowcolorInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendFactoryProgress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ydate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendFactoryProgressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSendFactoryProgressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendFactoryProgressforEnt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="consid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ydate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendFactoryProgressforEntResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSendFactoryProgressforEntResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarehouseSave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarehouseSaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWarehouseSaveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarehouseSaveByVtype">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarehouseSaveByVtypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWarehouseSaveByVtypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarehouseSaveforSid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarehouseSaveforSidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWarehouseSaveforSidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOildepotforSid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOildepotforSidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOildepotforSidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarehouseSaveforOiid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="oiid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarehouseSaveforOiidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWarehouseSaveforOiidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleProgress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleProgressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSaleProgressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleProgressforOiid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="oiid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleProgressforOiidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSaleProgressforOiidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserCoupleBack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usern" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ftext" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lxphone" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserCoupleBackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddUserCoupleBackResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddReplyUserFeedBack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fkid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hftext" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="repname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddReplyUserFeedBackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddReplyUserFeedBackResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserCoupleBack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="starindex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pagesize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserCoupleBackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserCoupleBackResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntPlangoodsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ntype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="datestr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntPlangoodsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEntPlangoodsInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCcApYjInfoForIphone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ntype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="datestr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCcApYjInfoForIphoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCcApYjInfoForIphoneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjInfoNextForclient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjInfoNextForclientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYjInfoNextForclientResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjInfoNextForvtypeclient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYjInfoNextForvtypeclientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYjInfoNextForvtypeclientResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:UserLogin" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:UserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetHistory" />
+  </wsdl:message>
+  <wsdl:message name="GetHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoryMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetMapUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMapUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetMapUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMapUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMapUrlMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAPKUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPKUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetAPKUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPKUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPKUrlMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNotificationCount" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNotificationCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSendMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserSendMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSendMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserSendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSendMessageMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetMessageStateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMessageState" />
+  </wsdl:message>
+  <wsdl:message name="SetMessageStateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMessageStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetMessageStateMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetShipForjwdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShipForjwd" />
+  </wsdl:message>
+  <wsdl:message name="GetShipForjwdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShipForjwdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShipForjwdMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SearchShipOROilAdressSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchShipOROilAdress" />
+  </wsdl:message>
+  <wsdl:message name="SearchShipOROilAdressSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchShipOROilAdressResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchShipOROilAdressMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetOildepotInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOildepotInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetOildepotInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOildepotInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOildepotInfoMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetRefineryInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRefineryInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetRefineryInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRefineryInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRefineryInfoMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTransportationInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransportationInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetTransportationInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransportationInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransportationInfoMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoForclientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYjInfoForclient" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoForclientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYjInfoForclientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoForclientMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoForIphoneSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYjInfoForIphone" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoForIphoneSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYjInfoForIphoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoForIphoneMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYjInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYjInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAllYkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllYk" />
+  </wsdl:message>
+  <wsdl:message name="GetAllYkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllYkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllYkMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetProgressAllYkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProgressAllYk" />
+  </wsdl:message>
+  <wsdl:message name="GetProgressAllYkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProgressAllYkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProgressAllYkMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPlangoodAllYkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlangoodAllYk" />
+  </wsdl:message>
+  <wsdl:message name="GetPlangoodAllYkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlangoodAllYkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlangoodAllYkMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetdatielYkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetdatielYk" />
+  </wsdl:message>
+  <wsdl:message name="GetdatielYkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetdatielYkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetdatielYkMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAllYjProgressInfoForVarietytypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllYjProgressInfoForVarietytype" />
+  </wsdl:message>
+  <wsdl:message name="GetAllYjProgressInfoForVarietytypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllYjProgressInfoForVarietytypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllYjProgressInfoForVarietytypeMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetKcYjInfoForIphoneSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKcYjInfoForIphone" />
+  </wsdl:message>
+  <wsdl:message name="GetKcYjInfoForIphoneSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKcYjInfoForIphoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKcYjInfoForIphoneMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetYjWarehouseSaveInfoForEidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYjWarehouseSaveInfoForEid" />
+  </wsdl:message>
+  <wsdl:message name="GetYjWarehouseSaveInfoForEidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYjWarehouseSaveInfoForEidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYjWarehouseSaveInfoForEidMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCcYjInfoForIphoneSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCcYjInfoForIphone" />
+  </wsdl:message>
+  <wsdl:message name="GetCcYjInfoForIphoneSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCcYjInfoForIphoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCcYjInfoForIphoneMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetYjProgressInfoForEidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYjProgressInfoForEid" />
+  </wsdl:message>
+  <wsdl:message name="GetYjProgressInfoForEidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYjProgressInfoForEidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYjProgressInfoForEidMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetYjWarehouseSaveInfoForVarietytypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYjWarehouseSaveInfoForVarietytype" />
+  </wsdl:message>
+  <wsdl:message name="GetYjWarehouseSaveInfoForVarietytypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYjWarehouseSaveInfoForVarietytypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYjWarehouseSaveInfoForVarietytypeMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetYjProgressInfoForVarietytypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYjProgressInfoForVarietytype" />
+  </wsdl:message>
+  <wsdl:message name="GetYjProgressInfoForVarietytypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYjProgressInfoForVarietytypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYjProgressInfoForVarietytypeMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTransportAuditSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransportAudit" />
+  </wsdl:message>
+  <wsdl:message name="GetTransportAuditSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransportAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransportAuditMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="CommitTransportAuditSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitTransportAudit" />
+  </wsdl:message>
+  <wsdl:message name="CommitTransportAuditSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitTransportAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitTransportAuditMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetWaterTranAuditSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWaterTranAudit" />
+  </wsdl:message>
+  <wsdl:message name="GetWaterTranAuditSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWaterTranAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWaterTranAuditMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetHCTranAuditSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHCTranAudit" />
+  </wsdl:message>
+  <wsdl:message name="GetHCTranAuditSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHCTranAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHCTranAuditMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="CommitDispatcherAuditSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitDispatcherAudit" />
+  </wsdl:message>
+  <wsdl:message name="CommitDispatcherAuditSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitDispatcherAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitDispatcherAuditMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDispatcherAuditSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDispatcherAudit" />
+  </wsdl:message>
+  <wsdl:message name="GetDispatcherAuditSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDispatcherAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDispatcherAuditMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetWaterTranConfirmSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWaterTranConfirm" />
+  </wsdl:message>
+  <wsdl:message name="GetWaterTranConfirmSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWaterTranConfirmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWaterTranConfirmMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="CommitWaterTranConfirmSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitWaterTranConfirm" />
+  </wsdl:message>
+  <wsdl:message name="CommitWaterTranConfirmSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitWaterTranConfirmResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitWaterTranConfirmMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetWaterTranAlterPortSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWaterTranAlterPort" />
+  </wsdl:message>
+  <wsdl:message name="GetWaterTranAlterPortSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWaterTranAlterPortResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWaterTranAlterPortMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="CommitWaterTranAlterPortSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitWaterTranAlterPort" />
+  </wsdl:message>
+  <wsdl:message name="CommitWaterTranAlterPortSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitWaterTranAlterPortResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitWaterTranAlterPortMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSendGoodstimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSendGoodstime" />
+  </wsdl:message>
+  <wsdl:message name="GetSendGoodstimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSendGoodstimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSendGoodstimeMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="CommitGoodsTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitGoodsTime" />
+  </wsdl:message>
+  <wsdl:message name="CommitGoodsTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitGoodsTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitGoodsTimeMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="CommitAuditResultSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitAuditResult" />
+  </wsdl:message>
+  <wsdl:message name="CommitAuditResultSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitAuditResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitAuditResultMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="CommitHCJHAuditResultSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitHCJHAuditResult" />
+  </wsdl:message>
+  <wsdl:message name="CommitHCJHAuditResultSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitHCJHAuditResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitHCJHAuditResultMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTransportCostReceiptSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransportCostReceipt" />
+  </wsdl:message>
+  <wsdl:message name="GetTransportCostReceiptSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransportCostReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransportCostReceiptMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="CommitTransportCostReceiptSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitTransportCostReceipt" />
+  </wsdl:message>
+  <wsdl:message name="CommitTransportCostReceiptSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitTransportCostReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitTransportCostReceiptMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetYJshowcolorInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYJshowcolorInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetYJshowcolorInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYJshowcolorInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYJshowcolorInfoMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSendFactoryProgressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSendFactoryProgress" />
+  </wsdl:message>
+  <wsdl:message name="GetSendFactoryProgressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSendFactoryProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSendFactoryProgressMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSendFactoryProgressforEntSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSendFactoryProgressforEnt" />
+  </wsdl:message>
+  <wsdl:message name="GetSendFactoryProgressforEntSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSendFactoryProgressforEntResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSendFactoryProgressforEntMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSave" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveByVtypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSaveByVtype" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveByVtypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSaveByVtypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveByVtypeMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveforSidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSaveforSid" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveforSidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSaveforSidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveforSidMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetOildepotforSidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOildepotforSid" />
+  </wsdl:message>
+  <wsdl:message name="GetOildepotforSidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOildepotforSidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOildepotforSidMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveforOiidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSaveforOiid" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveforOiidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSaveforOiidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseSaveforOiidMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleProgressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSaleProgress" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleProgressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSaleProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleProgressMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleProgressforOiidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSaleProgressforOiid" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleProgressforOiidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSaleProgressforOiidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleProgressforOiidMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddUserCoupleBackSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUserCoupleBack" />
+  </wsdl:message>
+  <wsdl:message name="AddUserCoupleBackSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserCoupleBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserCoupleBackMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddReplyUserFeedBackSoapIn">
+    <wsdl:part name="parameters" element="tns:AddReplyUserFeedBack" />
+  </wsdl:message>
+  <wsdl:message name="AddReplyUserFeedBackSoapOut">
+    <wsdl:part name="parameters" element="tns:AddReplyUserFeedBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddReplyUserFeedBackMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetUserCoupleBackSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserCoupleBack" />
+  </wsdl:message>
+  <wsdl:message name="GetUserCoupleBackSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserCoupleBackResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserCoupleBackMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetEntPlangoodsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEntPlangoodsInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEntPlangoodsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEntPlangoodsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEntPlangoodsInfoMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCcApYjInfoForIphoneSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCcApYjInfoForIphone" />
+  </wsdl:message>
+  <wsdl:message name="GetCcApYjInfoForIphoneSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCcApYjInfoForIphoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCcApYjInfoForIphoneMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoNextForclientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYjInfoNextForclient" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoNextForclientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYjInfoNextForclientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoNextForclientMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoNextForvtypeclientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYjInfoNextForvtypeclient" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoNextForvtypeclientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYjInfoNextForvtypeclientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYjInfoNextForvtypeclientMySoapHeader">
+    <wsdl:part name="MySoapHeader" element="tns:MySoapHeader" />
+  </wsdl:message>
+  <wsdl:portType name="MobileTerminalWSSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">登录</wsdl:documentation>
+      <wsdl:input message="tns:UserLoginSoapIn" />
+      <wsdl:output message="tns:UserLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取船舶轨迹节点</wsdl:documentation>
+      <wsdl:input message="tns:GetHistorySoapIn" />
+      <wsdl:output message="tns:GetHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMapUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取地图服务地址</wsdl:documentation>
+      <wsdl:input message="tns:GetMapUrlSoapIn" />
+      <wsdl:output message="tns:GetMapUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPKUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取自动更新APK路径</wsdl:documentation>
+      <wsdl:input message="tns:GetAPKUrlSoapIn" />
+      <wsdl:output message="tns:GetAPKUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取用户通知信息数量</wsdl:documentation>
+      <wsdl:input message="tns:GetNotificationCountSoapIn" />
+      <wsdl:output message="tns:GetNotificationCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSendMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定用户通知信息内容(未执行)</wsdl:documentation>
+      <wsdl:input message="tns:GetUserSendMessageSoapIn" />
+      <wsdl:output message="tns:GetUserSendMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMessageState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">设置消息为已读状态(未执行)</wsdl:documentation>
+      <wsdl:input message="tns:SetMessageStateSoapIn" />
+      <wsdl:output message="tns:SetMessageStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipForjwd">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定经纬度周围的船舶数据</wsdl:documentation>
+      <wsdl:input message="tns:GetShipForjwdSoapIn" />
+      <wsdl:output message="tns:GetShipForjwdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchShipOROilAdress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">模糊查询船舶, 油库, 管输的位置,类型 1 船舶 2 油库 3 管输</wsdl:documentation>
+      <wsdl:input message="tns:SearchShipOROilAdressSoapIn" />
+      <wsdl:output message="tns:SearchShipOROilAdressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOildepotInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询油库信息</wsdl:documentation>
+      <wsdl:input message="tns:GetOildepotInfoSoapIn" />
+      <wsdl:output message="tns:GetOildepotInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRefineryInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询炼厂信息</wsdl:documentation>
+      <wsdl:input message="tns:GetRefineryInfoSoapIn" />
+      <wsdl:output message="tns:GetRefineryInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransportationInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询管输信息(未执行)</wsdl:documentation>
+      <wsdl:input message="tns:GetTransportationInfoSoapIn" />
+      <wsdl:output message="tns:GetTransportationInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoForclient">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询预警信息客户端</wsdl:documentation>
+      <wsdl:input message="tns:GetYjInfoForclientSoapIn" />
+      <wsdl:output message="tns:GetYjInfoForclientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoForIphone">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询预警信息客户端手机</wsdl:documentation>
+      <wsdl:input message="tns:GetYjInfoForIphoneSoapIn" />
+      <wsdl:output message="tns:GetYjInfoForIphoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询预警信息</wsdl:documentation>
+      <wsdl:input message="tns:GetYjInfoSoapIn" />
+      <wsdl:output message="tns:GetYjInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllYk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据江苏，浙江，上海的Enterpriseid查询今天所属的油库库存</wsdl:documentation>
+      <wsdl:input message="tns:GetAllYkSoapIn" />
+      <wsdl:output message="tns:GetAllYkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgressAllYk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据江苏，浙江，上海的Enterpriseid查询今天进度预警信息</wsdl:documentation>
+      <wsdl:input message="tns:GetProgressAllYkSoapIn" />
+      <wsdl:output message="tns:GetProgressAllYkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlangoodAllYk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询油库，炼厂的运输情况</wsdl:documentation>
+      <wsdl:input message="tns:GetPlangoodAllYkSoapIn" />
+      <wsdl:output message="tns:GetPlangoodAllYkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetdatielYk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据江苏，浙江，上海的Enterpriseid查询今天所属的详细油库库存</wsdl:documentation>
+      <wsdl:input message="tns:GetdatielYkSoapIn" />
+      <wsdl:output message="tns:GetdatielYkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllYjProgressInfoForVarietytype">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据炼厂或油库，油品大类查询各个油品详细进度预警信息</wsdl:documentation>
+      <wsdl:input message="tns:GetAllYjProgressInfoForVarietytypeSoapIn" />
+      <wsdl:output message="tns:GetAllYjProgressInfoForVarietytypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKcYjInfoForIphone">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据江苏，浙江，上海的Enterpriseid查询今天所属的油库库存</wsdl:documentation>
+      <wsdl:input message="tns:GetKcYjInfoForIphoneSoapIn" />
+      <wsdl:output message="tns:GetKcYjInfoForIphoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYjWarehouseSaveInfoForEid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据炼厂或油库查询油品库存大类预警信息</wsdl:documentation>
+      <wsdl:input message="tns:GetYjWarehouseSaveInfoForEidSoapIn" />
+      <wsdl:output message="tns:GetYjWarehouseSaveInfoForEidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCcYjInfoForIphone">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据炼厂或油库查询油品进度大类预警信息</wsdl:documentation>
+      <wsdl:input message="tns:GetCcYjInfoForIphoneSoapIn" />
+      <wsdl:output message="tns:GetCcYjInfoForIphoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYjProgressInfoForEid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据炼厂或油库查询油品进度大类预警信息</wsdl:documentation>
+      <wsdl:input message="tns:GetYjProgressInfoForEidSoapIn" />
+      <wsdl:output message="tns:GetYjProgressInfoForEidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYjWarehouseSaveInfoForVarietytype">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据炼厂或油库，油品大类查询各个油品详细库存预警信息</wsdl:documentation>
+      <wsdl:input message="tns:GetYjWarehouseSaveInfoForVarietytypeSoapIn" />
+      <wsdl:output message="tns:GetYjWarehouseSaveInfoForVarietytypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYjProgressInfoForVarietytype">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据炼厂或油库，油品大类查询各个油品详细进度预警信息</wsdl:documentation>
+      <wsdl:input message="tns:GetYjProgressInfoForVarietytypeSoapIn" />
+      <wsdl:output message="tns:GetYjProgressInfoForVarietytypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransportAudit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询运输计划调整审核</wsdl:documentation>
+      <wsdl:input message="tns:GetTransportAuditSoapIn" />
+      <wsdl:output message="tns:GetTransportAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransportAudit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">运输计划调整审核提交</wsdl:documentation>
+      <wsdl:input message="tns:CommitTransportAuditSoapIn" />
+      <wsdl:output message="tns:CommitTransportAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWaterTranAudit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询水运计划修改审核 参数 1 科长，2处长</wsdl:documentation>
+      <wsdl:input message="tns:GetWaterTranAuditSoapIn" />
+      <wsdl:output message="tns:GetWaterTranAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHCTranAudit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询航次计划审核 参数 1 科长，2处长</wsdl:documentation>
+      <wsdl:input message="tns:GetHCTranAuditSoapIn" />
+      <wsdl:output message="tns:GetHCTranAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitDispatcherAudit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">提交承运商确认</wsdl:documentation>
+      <wsdl:input message="tns:CommitDispatcherAuditSoapIn" />
+      <wsdl:output message="tns:CommitDispatcherAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDispatcherAudit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询承运商确认</wsdl:documentation>
+      <wsdl:input message="tns:GetDispatcherAuditSoapIn" />
+      <wsdl:output message="tns:GetDispatcherAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWaterTranConfirm">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询水运运输计划确认 参数 用户机构id</wsdl:documentation>
+      <wsdl:input message="tns:GetWaterTranConfirmSoapIn" />
+      <wsdl:output message="tns:GetWaterTranConfirmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitWaterTranConfirm">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">水运运输计划确认提交</wsdl:documentation>
+      <wsdl:input message="tns:CommitWaterTranConfirmSoapIn" />
+      <wsdl:output message="tns:CommitWaterTranConfirmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWaterTranAlterPort">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询水运运输计划改港确认 参数 用户机构id</wsdl:documentation>
+      <wsdl:input message="tns:GetWaterTranAlterPortSoapIn" />
+      <wsdl:output message="tns:GetWaterTranAlterPortSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitWaterTranAlterPort">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">水运运输计划改港确认提交</wsdl:documentation>
+      <wsdl:input message="tns:CommitWaterTranAlterPortSoapIn" />
+      <wsdl:output message="tns:CommitWaterTranAlterPortSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendGoodstime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询水运配送计划发货结束时间确认 参数 类型 3 内河，4沿海,空字符串 为全部</wsdl:documentation>
+      <wsdl:input message="tns:GetSendGoodstimeSoapIn" />
+      <wsdl:output message="tns:GetSendGoodstimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitGoodsTime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">提交水运配送计划发货结束时间</wsdl:documentation>
+      <wsdl:input message="tns:CommitGoodsTimeSoapIn" />
+      <wsdl:output message="tns:CommitGoodsTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitAuditResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">水运计划修改审核提交审核结果</wsdl:documentation>
+      <wsdl:input message="tns:CommitAuditResultSoapIn" />
+      <wsdl:output message="tns:CommitAuditResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitHCJHAuditResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">航次计划审核提交审核结果</wsdl:documentation>
+      <wsdl:input message="tns:CommitHCJHAuditResultSoapIn" />
+      <wsdl:output message="tns:CommitHCJHAuditResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransportCostReceipt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">运费环节回执单确认 参数 用户机构id</wsdl:documentation>
+      <wsdl:input message="tns:GetTransportCostReceiptSoapIn" />
+      <wsdl:output message="tns:GetTransportCostReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransportCostReceipt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">提交运费环节回执单确认</wsdl:documentation>
+      <wsdl:input message="tns:CommitTransportCostReceiptSoapIn" />
+      <wsdl:output message="tns:CommitTransportCostReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYJshowcolorInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询状态颜色</wsdl:documentation>
+      <wsdl:input message="tns:GetYJshowcolorInfoSoapIn" />
+      <wsdl:output message="tns:GetYJshowcolorInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendFactoryProgress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询总出厂进度</wsdl:documentation>
+      <wsdl:input message="tns:GetSendFactoryProgressSoapIn" />
+      <wsdl:output message="tns:GetSendFactoryProgressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendFactoryProgressforEnt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据炼厂查询各油品出厂进度</wsdl:documentation>
+      <wsdl:input message="tns:GetSendFactoryProgressforEntSoapIn" />
+      <wsdl:output message="tns:GetSendFactoryProgressforEntSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSave">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询库存</wsdl:documentation>
+      <wsdl:input message="tns:GetWarehouseSaveSoapIn" />
+      <wsdl:output message="tns:GetWarehouseSaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSaveByVtype">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询库存大类</wsdl:documentation>
+      <wsdl:input message="tns:GetWarehouseSaveByVtypeSoapIn" />
+      <wsdl:output message="tns:GetWarehouseSaveByVtypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSaveforSid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据省市查询库存</wsdl:documentation>
+      <wsdl:input message="tns:GetWarehouseSaveforSidSoapIn" />
+      <wsdl:output message="tns:GetWarehouseSaveforSidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOildepotforSid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据省市查询油库</wsdl:documentation>
+      <wsdl:input message="tns:GetOildepotforSidSoapIn" />
+      <wsdl:output message="tns:GetOildepotforSidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSaveforOiid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据油库查询库存</wsdl:documentation>
+      <wsdl:input message="tns:GetWarehouseSaveforOiidSoapIn" />
+      <wsdl:output message="tns:GetWarehouseSaveforOiidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleProgress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询销售进度</wsdl:documentation>
+      <wsdl:input message="tns:GetSaleProgressSoapIn" />
+      <wsdl:output message="tns:GetSaleProgressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleProgressforOiid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据油库查询销售进度</wsdl:documentation>
+      <wsdl:input message="tns:GetSaleProgressforOiidSoapIn" />
+      <wsdl:output message="tns:GetSaleProgressforOiidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserCoupleBack">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加用户反馈</wsdl:documentation>
+      <wsdl:input message="tns:AddUserCoupleBackSoapIn" />
+      <wsdl:output message="tns:AddUserCoupleBackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReplyUserFeedBack">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加回复信息</wsdl:documentation>
+      <wsdl:input message="tns:AddReplyUserFeedBackSoapIn" />
+      <wsdl:output message="tns:AddReplyUserFeedBackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCoupleBack">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询用户反馈信息</wsdl:documentation>
+      <wsdl:input message="tns:GetUserCoupleBackSoapIn" />
+      <wsdl:output message="tns:GetUserCoupleBackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntPlangoodsInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询油库，炼厂的运输情况</wsdl:documentation>
+      <wsdl:input message="tns:GetEntPlangoodsInfoSoapIn" />
+      <wsdl:output message="tns:GetEntPlangoodsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCcApYjInfoForIphone">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询油库，炼厂的运输情况</wsdl:documentation>
+      <wsdl:input message="tns:GetCcApYjInfoForIphoneSoapIn" />
+      <wsdl:output message="tns:GetCcApYjInfoForIphoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoNextForclient">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据炼厂或油库查询明后日是否预警客户端</wsdl:documentation>
+      <wsdl:input message="tns:GetYjInfoNextForclientSoapIn" />
+      <wsdl:output message="tns:GetYjInfoNextForclientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoNextForvtypeclient">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据炼厂或油库查询油品大类明后日是否预警客户端</wsdl:documentation>
+      <wsdl:input message="tns:GetYjInfoNextForvtypeclientSoapIn" />
+      <wsdl:output message="tns:GetYjInfoNextForvtypeclientSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MobileTerminalWSSoap" type="tns:MobileTerminalWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap:operation soapAction="http://tempuri.org/UserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UserLoginMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistory">
+      <soap:operation soapAction="http://tempuri.org/GetHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHistoryMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMapUrl">
+      <soap:operation soapAction="http://tempuri.org/GetMapUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMapUrlMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPKUrl">
+      <soap:operation soapAction="http://tempuri.org/GetAPKUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAPKUrlMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationCount">
+      <soap:operation soapAction="http://tempuri.org/GetNotificationCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSendMessage">
+      <soap:operation soapAction="http://tempuri.org/GetUserSendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetUserSendMessageMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMessageState">
+      <soap:operation soapAction="http://tempuri.org/SetMessageState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetMessageStateMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipForjwd">
+      <soap:operation soapAction="http://tempuri.org/GetShipForjwd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetShipForjwdMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchShipOROilAdress">
+      <soap:operation soapAction="http://tempuri.org/SearchShipOROilAdress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SearchShipOROilAdressMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOildepotInfo">
+      <soap:operation soapAction="http://tempuri.org/GetOildepotInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOildepotInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRefineryInfo">
+      <soap:operation soapAction="http://tempuri.org/GetRefineryInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRefineryInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransportationInfo">
+      <soap:operation soapAction="http://tempuri.org/GetTransportationInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTransportationInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoForclient">
+      <soap:operation soapAction="http://tempuri.org/GetYjInfoForclient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetYjInfoForclientMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoForIphone">
+      <soap:operation soapAction="http://tempuri.org/GetYjInfoForIphone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetYjInfoForIphoneMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfo">
+      <soap:operation soapAction="http://tempuri.org/GetYjInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetYjInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllYk">
+      <soap:operation soapAction="http://tempuri.org/GetAllYk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllYkMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgressAllYk">
+      <soap:operation soapAction="http://tempuri.org/GetProgressAllYk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetProgressAllYkMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlangoodAllYk">
+      <soap:operation soapAction="http://tempuri.org/GetPlangoodAllYk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPlangoodAllYkMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetdatielYk">
+      <soap:operation soapAction="http://tempuri.org/GetdatielYk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetdatielYkMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllYjProgressInfoForVarietytype">
+      <soap:operation soapAction="http://tempuri.org/GetAllYjProgressInfoForVarietytype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAllYjProgressInfoForVarietytypeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKcYjInfoForIphone">
+      <soap:operation soapAction="http://tempuri.org/GetKcYjInfoForIphone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetKcYjInfoForIphoneMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjWarehouseSaveInfoForEid">
+      <soap:operation soapAction="http://tempuri.org/GetYjWarehouseSaveInfoForEid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetYjWarehouseSaveInfoForEidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCcYjInfoForIphone">
+      <soap:operation soapAction="http://tempuri.org/GetCcYjInfoForIphone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCcYjInfoForIphoneMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjProgressInfoForEid">
+      <soap:operation soapAction="http://tempuri.org/GetYjProgressInfoForEid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetYjProgressInfoForEidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjWarehouseSaveInfoForVarietytype">
+      <soap:operation soapAction="http://tempuri.org/GetYjWarehouseSaveInfoForVarietytype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetYjWarehouseSaveInfoForVarietytypeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjProgressInfoForVarietytype">
+      <soap:operation soapAction="http://tempuri.org/GetYjProgressInfoForVarietytype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetYjProgressInfoForVarietytypeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransportAudit">
+      <soap:operation soapAction="http://tempuri.org/GetTransportAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTransportAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransportAudit">
+      <soap:operation soapAction="http://tempuri.org/CommitTransportAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CommitTransportAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWaterTranAudit">
+      <soap:operation soapAction="http://tempuri.org/GetWaterTranAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetWaterTranAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHCTranAudit">
+      <soap:operation soapAction="http://tempuri.org/GetHCTranAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHCTranAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitDispatcherAudit">
+      <soap:operation soapAction="http://tempuri.org/CommitDispatcherAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CommitDispatcherAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDispatcherAudit">
+      <soap:operation soapAction="http://tempuri.org/GetDispatcherAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDispatcherAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWaterTranConfirm">
+      <soap:operation soapAction="http://tempuri.org/GetWaterTranConfirm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetWaterTranConfirmMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitWaterTranConfirm">
+      <soap:operation soapAction="http://tempuri.org/CommitWaterTranConfirm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CommitWaterTranConfirmMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWaterTranAlterPort">
+      <soap:operation soapAction="http://tempuri.org/GetWaterTranAlterPort" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetWaterTranAlterPortMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitWaterTranAlterPort">
+      <soap:operation soapAction="http://tempuri.org/CommitWaterTranAlterPort" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CommitWaterTranAlterPortMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendGoodstime">
+      <soap:operation soapAction="http://tempuri.org/GetSendGoodstime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSendGoodstimeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitGoodsTime">
+      <soap:operation soapAction="http://tempuri.org/CommitGoodsTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CommitGoodsTimeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitAuditResult">
+      <soap:operation soapAction="http://tempuri.org/CommitAuditResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CommitAuditResultMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitHCJHAuditResult">
+      <soap:operation soapAction="http://tempuri.org/CommitHCJHAuditResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CommitHCJHAuditResultMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransportCostReceipt">
+      <soap:operation soapAction="http://tempuri.org/GetTransportCostReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTransportCostReceiptMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransportCostReceipt">
+      <soap:operation soapAction="http://tempuri.org/CommitTransportCostReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CommitTransportCostReceiptMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYJshowcolorInfo">
+      <soap:operation soapAction="http://tempuri.org/GetYJshowcolorInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetYJshowcolorInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendFactoryProgress">
+      <soap:operation soapAction="http://tempuri.org/GetSendFactoryProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSendFactoryProgressMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendFactoryProgressforEnt">
+      <soap:operation soapAction="http://tempuri.org/GetSendFactoryProgressforEnt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSendFactoryProgressforEntMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSave">
+      <soap:operation soapAction="http://tempuri.org/GetWarehouseSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetWarehouseSaveMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSaveByVtype">
+      <soap:operation soapAction="http://tempuri.org/GetWarehouseSaveByVtype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetWarehouseSaveByVtypeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSaveforSid">
+      <soap:operation soapAction="http://tempuri.org/GetWarehouseSaveforSid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetWarehouseSaveforSidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOildepotforSid">
+      <soap:operation soapAction="http://tempuri.org/GetOildepotforSid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOildepotforSidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSaveforOiid">
+      <soap:operation soapAction="http://tempuri.org/GetWarehouseSaveforOiid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetWarehouseSaveforOiidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleProgress">
+      <soap:operation soapAction="http://tempuri.org/GetSaleProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSaleProgressMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleProgressforOiid">
+      <soap:operation soapAction="http://tempuri.org/GetSaleProgressforOiid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSaleProgressforOiidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserCoupleBack">
+      <soap:operation soapAction="http://tempuri.org/AddUserCoupleBack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddUserCoupleBackMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReplyUserFeedBack">
+      <soap:operation soapAction="http://tempuri.org/AddReplyUserFeedBack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddReplyUserFeedBackMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCoupleBack">
+      <soap:operation soapAction="http://tempuri.org/GetUserCoupleBack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetUserCoupleBackMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntPlangoodsInfo">
+      <soap:operation soapAction="http://tempuri.org/GetEntPlangoodsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetEntPlangoodsInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCcApYjInfoForIphone">
+      <soap:operation soapAction="http://tempuri.org/GetCcApYjInfoForIphone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCcApYjInfoForIphoneMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoNextForclient">
+      <soap:operation soapAction="http://tempuri.org/GetYjInfoNextForclient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetYjInfoNextForclientMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoNextForvtypeclient">
+      <soap:operation soapAction="http://tempuri.org/GetYjInfoNextForvtypeclient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetYjInfoNextForvtypeclientMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MobileTerminalWSSoap12" type="tns:MobileTerminalWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap12:operation soapAction="http://tempuri.org/UserLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UserLoginMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistory">
+      <soap12:operation soapAction="http://tempuri.org/GetHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHistoryMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMapUrl">
+      <soap12:operation soapAction="http://tempuri.org/GetMapUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetMapUrlMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPKUrl">
+      <soap12:operation soapAction="http://tempuri.org/GetAPKUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAPKUrlMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationCount">
+      <soap12:operation soapAction="http://tempuri.org/GetNotificationCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSendMessage">
+      <soap12:operation soapAction="http://tempuri.org/GetUserSendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetUserSendMessageMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMessageState">
+      <soap12:operation soapAction="http://tempuri.org/SetMessageState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetMessageStateMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipForjwd">
+      <soap12:operation soapAction="http://tempuri.org/GetShipForjwd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetShipForjwdMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchShipOROilAdress">
+      <soap12:operation soapAction="http://tempuri.org/SearchShipOROilAdress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SearchShipOROilAdressMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOildepotInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetOildepotInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOildepotInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRefineryInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetRefineryInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRefineryInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransportationInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetTransportationInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTransportationInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoForclient">
+      <soap12:operation soapAction="http://tempuri.org/GetYjInfoForclient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetYjInfoForclientMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoForIphone">
+      <soap12:operation soapAction="http://tempuri.org/GetYjInfoForIphone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetYjInfoForIphoneMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetYjInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetYjInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllYk">
+      <soap12:operation soapAction="http://tempuri.org/GetAllYk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAllYkMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgressAllYk">
+      <soap12:operation soapAction="http://tempuri.org/GetProgressAllYk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetProgressAllYkMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlangoodAllYk">
+      <soap12:operation soapAction="http://tempuri.org/GetPlangoodAllYk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPlangoodAllYkMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetdatielYk">
+      <soap12:operation soapAction="http://tempuri.org/GetdatielYk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetdatielYkMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllYjProgressInfoForVarietytype">
+      <soap12:operation soapAction="http://tempuri.org/GetAllYjProgressInfoForVarietytype" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAllYjProgressInfoForVarietytypeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKcYjInfoForIphone">
+      <soap12:operation soapAction="http://tempuri.org/GetKcYjInfoForIphone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetKcYjInfoForIphoneMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjWarehouseSaveInfoForEid">
+      <soap12:operation soapAction="http://tempuri.org/GetYjWarehouseSaveInfoForEid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetYjWarehouseSaveInfoForEidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCcYjInfoForIphone">
+      <soap12:operation soapAction="http://tempuri.org/GetCcYjInfoForIphone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCcYjInfoForIphoneMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjProgressInfoForEid">
+      <soap12:operation soapAction="http://tempuri.org/GetYjProgressInfoForEid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetYjProgressInfoForEidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjWarehouseSaveInfoForVarietytype">
+      <soap12:operation soapAction="http://tempuri.org/GetYjWarehouseSaveInfoForVarietytype" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetYjWarehouseSaveInfoForVarietytypeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjProgressInfoForVarietytype">
+      <soap12:operation soapAction="http://tempuri.org/GetYjProgressInfoForVarietytype" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetYjProgressInfoForVarietytypeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransportAudit">
+      <soap12:operation soapAction="http://tempuri.org/GetTransportAudit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTransportAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransportAudit">
+      <soap12:operation soapAction="http://tempuri.org/CommitTransportAudit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CommitTransportAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWaterTranAudit">
+      <soap12:operation soapAction="http://tempuri.org/GetWaterTranAudit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetWaterTranAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHCTranAudit">
+      <soap12:operation soapAction="http://tempuri.org/GetHCTranAudit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHCTranAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitDispatcherAudit">
+      <soap12:operation soapAction="http://tempuri.org/CommitDispatcherAudit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CommitDispatcherAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDispatcherAudit">
+      <soap12:operation soapAction="http://tempuri.org/GetDispatcherAudit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDispatcherAuditMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWaterTranConfirm">
+      <soap12:operation soapAction="http://tempuri.org/GetWaterTranConfirm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetWaterTranConfirmMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitWaterTranConfirm">
+      <soap12:operation soapAction="http://tempuri.org/CommitWaterTranConfirm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CommitWaterTranConfirmMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWaterTranAlterPort">
+      <soap12:operation soapAction="http://tempuri.org/GetWaterTranAlterPort" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetWaterTranAlterPortMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitWaterTranAlterPort">
+      <soap12:operation soapAction="http://tempuri.org/CommitWaterTranAlterPort" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CommitWaterTranAlterPortMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendGoodstime">
+      <soap12:operation soapAction="http://tempuri.org/GetSendGoodstime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSendGoodstimeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitGoodsTime">
+      <soap12:operation soapAction="http://tempuri.org/CommitGoodsTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CommitGoodsTimeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitAuditResult">
+      <soap12:operation soapAction="http://tempuri.org/CommitAuditResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CommitAuditResultMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitHCJHAuditResult">
+      <soap12:operation soapAction="http://tempuri.org/CommitHCJHAuditResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CommitHCJHAuditResultMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransportCostReceipt">
+      <soap12:operation soapAction="http://tempuri.org/GetTransportCostReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTransportCostReceiptMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransportCostReceipt">
+      <soap12:operation soapAction="http://tempuri.org/CommitTransportCostReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CommitTransportCostReceiptMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYJshowcolorInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetYJshowcolorInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetYJshowcolorInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendFactoryProgress">
+      <soap12:operation soapAction="http://tempuri.org/GetSendFactoryProgress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSendFactoryProgressMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendFactoryProgressforEnt">
+      <soap12:operation soapAction="http://tempuri.org/GetSendFactoryProgressforEnt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSendFactoryProgressforEntMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSave">
+      <soap12:operation soapAction="http://tempuri.org/GetWarehouseSave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetWarehouseSaveMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSaveByVtype">
+      <soap12:operation soapAction="http://tempuri.org/GetWarehouseSaveByVtype" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetWarehouseSaveByVtypeMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSaveforSid">
+      <soap12:operation soapAction="http://tempuri.org/GetWarehouseSaveforSid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetWarehouseSaveforSidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOildepotforSid">
+      <soap12:operation soapAction="http://tempuri.org/GetOildepotforSid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOildepotforSidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSaveforOiid">
+      <soap12:operation soapAction="http://tempuri.org/GetWarehouseSaveforOiid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetWarehouseSaveforOiidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleProgress">
+      <soap12:operation soapAction="http://tempuri.org/GetSaleProgress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSaleProgressMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleProgressforOiid">
+      <soap12:operation soapAction="http://tempuri.org/GetSaleProgressforOiid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSaleProgressforOiidMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserCoupleBack">
+      <soap12:operation soapAction="http://tempuri.org/AddUserCoupleBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddUserCoupleBackMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReplyUserFeedBack">
+      <soap12:operation soapAction="http://tempuri.org/AddReplyUserFeedBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddReplyUserFeedBackMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCoupleBack">
+      <soap12:operation soapAction="http://tempuri.org/GetUserCoupleBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetUserCoupleBackMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntPlangoodsInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetEntPlangoodsInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetEntPlangoodsInfoMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCcApYjInfoForIphone">
+      <soap12:operation soapAction="http://tempuri.org/GetCcApYjInfoForIphone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCcApYjInfoForIphoneMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoNextForclient">
+      <soap12:operation soapAction="http://tempuri.org/GetYjInfoNextForclient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetYjInfoNextForclientMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYjInfoNextForvtypeclient">
+      <soap12:operation soapAction="http://tempuri.org/GetYjInfoNextForvtypeclient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetYjInfoNextForvtypeclientMySoapHeader" part="MySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MobileTerminalWS">
+    <wsdl:port name="MobileTerminalWSSoap" binding="tns:MobileTerminalWSSoap">
+      <soap:address location="http://218.1.27.106:8085/hdwebservice/MobileTerminalWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MobileTerminalWSSoap12" binding="tns:MobileTerminalWSSoap12">
+      <soap12:address location="http://218.1.27.106:8085/hdwebservice/MobileTerminalWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
