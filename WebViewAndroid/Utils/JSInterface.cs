@@ -201,11 +201,19 @@ namespace WebViewAndroid
         {
             return Utils.GetString(szKey);
         }
+
         [Export]
         [JavascriptInterface]
         public void RemoveAllString()
         {
             Utils.RemoveAllString();
+        }
+
+        [Export]
+        [JavascriptInterface]
+        public string SaveToLocal(string szName, string szContent)
+        {
+            return Utils.DecodeBase64AndSave(szName, szContent);
         }
     }
 }

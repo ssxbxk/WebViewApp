@@ -110,6 +110,27 @@ namespace WebViewAndroid
             return "data:image/jpeg;base64," + Convert.ToBase64String(data);
         }
 
+        public static string DecodeBase64AndSave(String szFileName, string szContent)
+        {
+            string szPath = "";
+            OutputStream outFile = null;
+            byte[] data = null;
+
+            try
+            {
+                szPath = DOWNLOAD_PATH + szFileName;
+                outFile = new FileOutputStream(szPath);
+                data = Convert.FromBase64String(szContent);
+                outFile.Write(data);
+                outFile.Close();
+            }
+            catch
+            {
+                szPath = "";
+            }
+            return szPath;
+        }
+
         public static void SetString(string szKey, string szValue)
         {
             if (DicCache.ContainsKey(szKey))
