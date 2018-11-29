@@ -32,7 +32,7 @@ namespace WebViewAndroid
 
         private NotificationManager nMgr;
         private bool mInPortrait;
-        private MyWebViewClient myWebViewClient = new MyWebViewClient();
+        private MyWebViewClient myWebViewClient;
         private MyWebChromeClient myWebChromeClient;
         private LocationManager mLocationMgr;
         private JSInterface jsInterface;
@@ -60,6 +60,8 @@ namespace WebViewAndroid
             //添加我们刚创建的类,并命名为wv 
             jsInterface = new JSInterface(this);
             wvMain.AddJavascriptInterface(jsInterface, "wv");
+
+            myWebViewClient = new MyWebViewClient(this);
             wvMain.SetWebViewClient(myWebViewClient);
 
             myWebChromeClient = new MyWebChromeClient(this);
@@ -322,6 +324,14 @@ namespace WebViewAndroid
             base.OnResume();
             if (PreGetLocation)
                 StartLocationService();
+        }
+
+        /// <summary>
+        /// 页面加载失败时调用
+        /// </summary>
+        public void OnWebViewError() {
+            Toast.MakeText(this, "加载失败, 请检查网络连接!", ToastLength.Long).Show();
+            Finish();
         }
     }
 }
